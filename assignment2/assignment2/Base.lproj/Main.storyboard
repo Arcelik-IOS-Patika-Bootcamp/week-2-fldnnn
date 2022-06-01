@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -74,23 +75,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="netflix" translatesAutoresizingMaskIntoConstraints="NO" id="NtA-0b-8Xk">
-                                <rect key="frame" x="20" y="160" width="148" height="210"/>
-                                <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="148" id="eZs-1E-OhO"/>
-                                </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="JLl-XD-P6h" appends="YES" id="nWL-sG-s6D"/>
-                                </connections>
-                            </imageView>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facebook" translatesAutoresizingMaskIntoConstraints="NO" id="suO-qI-HfU">
-                                <rect key="frame" x="246" y="138" width="148" height="257"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="RYA-nE-BW3" appends="YES" id="z8j-OG-Wpb"/>
-                                </connections>
-                            </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Guess the logo!" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v52-UK-FcP">
                                 <rect key="frame" x="63" y="455" width="294" height="41"/>
                                 <constraints>
@@ -99,25 +83,44 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3N2-nV-UO0">
+                                <rect key="frame" x="0.0" y="550" width="414" height="258"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QN8-bP-mwr">
+                                    <size key="itemSize" width="415" height="200"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Tze-dd-xmI">
+                                        <rect key="frame" x="0.0" y="29" width="415" height="200"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="amm-Hw-Zb7">
+                                            <rect key="frame" x="0.0" y="0.0" width="415" height="200"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="415" height="200"/>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="o3t-8i-xo7"/>
                         <color key="backgroundColor" systemColor="systemTealColor"/>
                         <constraints>
                             <constraint firstItem="o3t-8i-xo7" firstAttribute="trailing" secondItem="v52-UK-FcP" secondAttribute="trailing" constant="57" id="ASY-zl-3EX"/>
-                            <constraint firstItem="NtA-0b-8Xk" firstAttribute="leading" secondItem="0nT-kC-Lzu" secondAttribute="leadingMargin" id="OYh-6J-0yN"/>
-                            <constraint firstItem="suO-qI-HfU" firstAttribute="leading" secondItem="NtA-0b-8Xk" secondAttribute="trailing" constant="78" id="a4D-Kq-G1u"/>
+                            <constraint firstItem="o3t-8i-xo7" firstAttribute="bottom" secondItem="3N2-nV-UO0" secondAttribute="bottom" id="AwW-gT-BhP"/>
+                            <constraint firstItem="o3t-8i-xo7" firstAttribute="bottom" secondItem="3N2-nV-UO0" secondAttribute="bottom" id="Y28-oR-asF"/>
                             <constraint firstItem="v52-UK-FcP" firstAttribute="leading" secondItem="o3t-8i-xo7" secondAttribute="leading" constant="63" id="bfw-1U-4gF"/>
-                            <constraint firstItem="suO-qI-HfU" firstAttribute="top" secondItem="o3t-8i-xo7" secondAttribute="top" constant="138" id="eMo-Yl-xx2"/>
-                            <constraint firstItem="v52-UK-FcP" firstAttribute="top" secondItem="NtA-0b-8Xk" secondAttribute="bottom" constant="85" id="fRQ-wV-3yp"/>
-                            <constraint firstItem="suO-qI-HfU" firstAttribute="trailing" secondItem="0nT-kC-Lzu" secondAttribute="trailingMargin" id="k07-J3-ywH"/>
+                            <constraint firstItem="3N2-nV-UO0" firstAttribute="top" secondItem="v52-UK-FcP" secondAttribute="bottom" id="e85-zr-oi2"/>
+                            <constraint firstItem="3N2-nV-UO0" firstAttribute="leading" secondItem="o3t-8i-xo7" secondAttribute="leading" id="gOB-Vu-i1J"/>
+                            <constraint firstItem="o3t-8i-xo7" firstAttribute="bottom" secondItem="3N2-nV-UO0" secondAttribute="bottom" id="k0X-b0-NaM"/>
+                            <constraint firstItem="o3t-8i-xo7" firstAttribute="trailing" secondItem="3N2-nV-UO0" secondAttribute="trailing" id="kbD-kg-ZAP"/>
                             <constraint firstItem="o3t-8i-xo7" firstAttribute="bottom" secondItem="v52-UK-FcP" secondAttribute="bottom" constant="312" id="pKV-mT-yjZ"/>
-                            <constraint firstItem="NtA-0b-8Xk" firstAttribute="top" secondItem="o3t-8i-xo7" secondAttribute="top" constant="160" id="pL7-xU-s1U"/>
-                            <constraint firstItem="v52-UK-FcP" firstAttribute="top" secondItem="suO-qI-HfU" secondAttribute="bottom" constant="60" id="v3k-2k-8NV"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="firstImageView" destination="NtA-0b-8Xk" id="qhG-Pp-TJp"/>
-                        <outlet property="secondImageView" destination="suO-qI-HfU" id="Khy-tT-dcr"/>
+                        <outlet property="collectionView" destination="3N2-nV-UO0" id="eLy-ae-NbC"/>
                         <outlet property="textField" destination="v52-UK-FcP" id="nWa-Rq-dE7"/>
                     </connections>
                 </viewController>
@@ -137,8 +140,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="facebook" width="692" height="672"/>
-        <image name="netflix" width="640" height="478"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
